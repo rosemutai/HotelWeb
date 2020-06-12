@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/forms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.js' %}">
+    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
+    <link rel="stylesheet" href="{% static 'js/dropdown.js' %}">
+    <link rel="stylesheet" href="{% static 'js/collapse.js' %}">
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body class="allbody">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand customlink" href="#">
+            <em><b>Ia<strong id="mybrand">t</strong>um hotels</b></em></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link customlink" id=" homelink" href="{% url 'index' %}">Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  customlink" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  customlink" href="{% url 'accommodation' %}">Acommodation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  customlink" href="{% url 'contact' %}">Contact</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    {% block content%}
+
+    {% endblock %}
+
+    
+    <footer>
+        <div class="footer myfooter">
+            <div id="contactme">
+                <p><b class="customlink">.....</b></p>
+
+                <a href="#"> <img class="contacimgs" src="{% static 'images/twitter.png' %}" width="15" height="15"
+                        alt="twitter"></a>
+                <a href="#"> <img class="contacimgs" src="{% static 'images/fb.png' %}" width="15" height="15"
+                        alt="twitter"></a>
+                <a href="#"> <img class="contacimgs" src="{% static 'images/ig.png' %}" width="15" height="15"
+                        alt="twitter"></a>
+                <br>
+                <p><em class="customlink mt-3">iatumhotels.co.ke</em><br>
+                    <p>
+                        <h4 class="customlink"><b>+254 307 00000</b></h4>
+                    </p>
+                    <em class="customlink mt-3">your satisfaction, our joy</em>
+                </p>
+
+            </div>
+        </div>
+
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

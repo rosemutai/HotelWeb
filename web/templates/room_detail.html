@@ -1,0 +1,70 @@
+{% extends 'forms.html' %}
+
+
+{% load static %}
+{% block title %}detail {% endblock %}
+
+{% block content %} 
+
+  <section class="probootstrap-slider flexslider2 page-inner">
+    <div class="overlay"></div>
+    <div class="probootstrap-wrap-banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+              <div class="page-title probootstrap-animate">
+                  <div class="probootstrap-breadcrumbs">
+                    <!-- <a href="#">Home </a><span><a href="{% url 'accommodation' %}"> Rooms </a></span>{{room_detail}} -->
+                  </div>
+                  <h4 class="mytitle mt-3">{{room_detail}}</h>
+                </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p><img src="{{room_detail.room_img.url}}" class="img-responsive" alt=""></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="room-details">Details</h3>
+
+          <p >Type : {{room_detail.category}}</p>
+          <p>Room Number : {{room_detail.room_no}}</p>
+          <p>Description : {{room_detail.description}}</p>
+           <p>Price : {{room_detail.price}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            
+              <form action="" method="POST">
+                  <h3>Book this room</h3>
+                  {{ booking_form.as_p }}
+                {% csrf_token %}
+                      <button type="submit" class="btn btn-primary" >Book</button>
+              </form>
+              <br>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+{% endblock %}

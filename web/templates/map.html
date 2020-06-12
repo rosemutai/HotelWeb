@@ -1,0 +1,23 @@
+{% load static %}
+
+{% block title %} {% endblock %}
+
+{% block content%}
+
+<h3 class="text-center mytitle"><b>Directions</b></h3>
+<div id="mymap">
+    <h1 id="map-space">map to the hotel</h1>
+
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken =
+            'sk.eyJ1Ijoicm9zZW11dGFpIiwiYSI6ImNrYjFhMXVqNzA4cTMyeWxjYWo0dTM3b3gifQ.SUsY9S7qePY6IaKo-LVc3g';
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
+            center: [-1.292222, 36.817860], // starting position [lng, lat]
+            zoom: 9 // starting zoom
+        });
+    </script>
+
+    {% endblock %}

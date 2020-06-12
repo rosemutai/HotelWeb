@@ -1,0 +1,27 @@
+{% extends 'forms.html' %}
+
+{% load static %}
+
+{% block title %}contact {% endblock %}
+
+{% block content %}
+
+<div id="contact">
+ 
+         <h5 class="display-8 ml-4 p-4" id="formtitle">Please fill in the form below to contact us</h5>
+
+         <form action="{% url 'contact' %}" method="post" class="contactmeform">
+             {% csrf_token%}
+             {{ form.as_p }}<br>
+
+             <button type="submit" class="btn btn-primary" id="btncontactme">Submit</button>
+
+         </form>
+   
+   
+    <br>
+    <br>
+
+</div>
+
+{% endblock %}
