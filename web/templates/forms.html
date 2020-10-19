@@ -3,80 +3,115 @@
 <html lang="en">
 
 <head>
+    <style>
+        body{
+            background-image: url("{%  static 'images/rr3.jpg' %}");
+        }
+       
+        .searchborder{
+            color: rgb(126, 64, 22);
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+             width: 100%;
+              background-color:  rgb(126, 64, 22);
+               color: white;
+               text-align: center;
+        }
+        .myicons{
+            color: beige;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title%} {% endblock %}</title>
+    <title>{% block title%}Iatum-hotel {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/forms.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'js/bootstrap.js' %}">
-    <link rel="stylesheet" href="{% static 'js/bootstrap.min.js' %}">
-    <link rel="stylesheet" href="{% static 'js/dropdown.js' %}">
-    <link rel="stylesheet" href="{% static 'js/collapse.js' %}">
-
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+     <script src="https://use.fontawesome.com/d5811db0da.js"></script>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css' rel='stylesheet' />
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+ integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" 
+ crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+ integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" 
+ crossorigin="anonymous"></script>
 </head>
 
 <body class="allbody">
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <a class="navbar-brand customlink" href="#">
-            <em><b>Ia<strong id="mybrand">t</strong>um hotels</b></em></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link customlink" id=" homelink" href="{% url 'index' %}">Home <span
-                            class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  customlink" href="{% url 'about' %}">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  customlink" href="{% url 'accommodation' %}">Acommodation</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link  customlink" href="{% url 'contact' %}">Contact</a>
-                </li>
+   <nav class="navbar navbar-expand-lg navbar-custom">
+  <a class="navbar-brand customlink" href="#">
+      <em><b>Ia<strong id="mybrand">t</strong>um hotels</b></em></a>
+  
+  <button class="navbar-toggler" type="button" 
+  data-toggle="collapse" data-target="#navbarSupportedContent" 
+  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-            </ul>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link customlink" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link customlink" href="{% url 'about' %}">Aboutk</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle customlink" href="{% url 'accommodation' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Accommodation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Single</a>
+          <a class="dropdown-item" href="#">Double</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Shared</a>
         </div>
-    </nav>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link customlink" href="{% url 'contact' %}">Contact </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-searchborder my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 
 
     {% block content%}
 
     {% endblock %}
 
-    
-    <footer>
-        <div class="footer myfooter">
-            <div id="contactme">
-                <p><b class="customlink">.....</b></p>
+    <br>
+    <br>
+   <section id="footer">
+		
+			<div class="footer">
+             <a href=""><i class="fa fa-twitter  myicons"></i></a>
+            <a href=""><i class="fa fa-facebook   myicons"></i></a>
+            <a href=""><i class="fa fa-instagram myicons"></i></a>
+            <a href=""><i class="fa fa-gmail myicons"></i></a>
 
-                <a href="#"> <img class="contacimgs" src="{% static 'images/twitter.png' %}" width="15" height="15"
-                        alt="twitter"></a>
-                <a href="#"> <img class="contacimgs" src="{% static 'images/fb.png' %}" width="15" height="15"
-                        alt="twitter"></a>
-                <a href="#"> <img class="contacimgs" src="{% static 'images/ig.png' %}" width="15" height="15"
-                        alt="twitter"></a>
-                <br>
-                <p><em class="customlink mt-3">iatumhotels.co.ke</em><br>
-                    <p>
-                        <h4 class="customlink"><b>+254 307 00000</b></h4>
-                    </p>
-                    <em class="customlink mt-3">your satisfaction, our joy</em>
-                </p>
+            
+            <p>
+                <a>Info | </a>
+                <a>Marketing | </a>
+                <a>Support </a
+            </p>
+            <p>Terms & Conditions</p>
 
+            <p>&copy;Copyright 2020 Iatum Hotel.  All Rights Reserved.</p>
             </div>
-        </div>
-
-
-        </div>
-    </footer>
+	</section>
 
 </body>
 

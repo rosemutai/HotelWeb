@@ -2,6 +2,9 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    background-image: url('{% static "images/rr3.jpg" %}');
+}
 
 .navbar-custom {
     position: fixed;
@@ -142,3 +145,9 @@ label{
 #btncontactme{
     margin-left: 200px;
 }
+
+.carousel-images{
+    border-radius: 250px;
+}
+
+

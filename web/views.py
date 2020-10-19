@@ -12,7 +12,7 @@ def accommodation(request):
     rooms = Room.objects.filter(available=True)
     return render(request, 'accommodation.html', {'rooms': rooms})  
      
-    
+     
 def  contact(request):
     if request.method == 'POST':
         form =  ContactForm(request.POST)
@@ -33,7 +33,6 @@ def  contact(request):
 
 def success(request):
     return HttpResponse("success, Thank you for your message.")
-
 
 def about(request):
     # mapbox_access_token = 'pk.my_mapbox_access_token'
