@@ -2,18 +2,14 @@
     margin: 0px;
     padding: 0px;
 }
-body{
-    background-image: url('{% static "images/rr3.jpg" %}');
-}
+
 
 .navbar-custom {
     position: fixed;
     background-color: rgb(126, 64, 22);
+    opacity: 0.8;
 }
 
-a {
-    color: whitesmoke;
-}
 
 a:hover {
     color: white;
@@ -30,9 +26,7 @@ a:hover {
     color: white;
 }
 
-#mybrand {
-    color: goldenrod;
-}
+
 
 .midbar {
     position: relative;
@@ -44,12 +38,7 @@ a:hover {
 
 }
 
-.textbody {
-    position: absolute;
-    color: white;
-    top: 40%;
-    left: 40%;
-}
+
 
 #foodadvert {
     position: absolute;
@@ -74,10 +63,6 @@ a:hover {
 .carousel-indicators line {
     border: 1px solid goldenrod;
     margin: -20px;
-}
-
-.carousel-indicators .active {
-    background: ghostwhite;
 }
 
 .myfooter {
@@ -123,31 +108,5 @@ li {
 .disclists {
     padding-top: 20px;
     list-style-type: disc;
-
 }
-
-
-input, textarea {
-    width: 50%;
-    box-shadow: 2px 2px gray;
-    display: flex;
-    
-}
-
-form {
-    margin-left: 20px;
-}
-
-label{
-    color: goldenrod;
-}
-
-#btncontactme{
-    margin-left: 200px;
-}
-
-.carousel-images{
-    border-radius: 250px;
-}
-
 

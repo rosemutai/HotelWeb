@@ -35,8 +35,9 @@ def success(request):
     return HttpResponse("success, Thank you for your message.")
 
 def about(request):
-    # mapbox_access_token = 'pk.my_mapbox_access_token'
-    return render(request, 'about.html')
+    mapbox_access_token = 'pk.my_mapbox_access_token'
+    return render(request, 'about.html', { 'mapbox_access_token': mapbox_access_token })
+
 
 def  room_detail(request, id):
     room_detail = Room.objects.get(id=id)
@@ -52,10 +53,7 @@ def  room_detail(request, id):
     return render(request, "room_detail.html", {'room_detail':room_detail, 'booking_form': booking_form})
 
 
-def default_map(request):
-    mapbox_access_token = 'pk.my_mapbox_access_token'
-    return render(request, 'map.html', 
-                  { 'mapbox_access_token': mapbox_access_token })
 
+                 
 # def booked_successfuly(request):
 #     return HttpResponse("You have succesfully booked a room")

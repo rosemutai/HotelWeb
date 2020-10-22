@@ -6,11 +6,7 @@ class ContactForm(forms.ModelForm):
         model = Contact
         fields = ['email', 'subject', 'message']
 
-        widgets = {
-            'email': forms.EmailInput(attrs={'class': 'formcontrol'}),
-            'subject': forms.TextInput(attrs={'class': 'formcontrol'}),
-            'message': forms.Textarea(attrs={'class': 'formcontrol'}),
-        }
+     
 
 class ReserveRoom(forms.ModelForm):
     class Meta:

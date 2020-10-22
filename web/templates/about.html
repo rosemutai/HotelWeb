@@ -4,8 +4,24 @@
 
 {% block title %} {% endblock %}
 
-{% block content%} 
-<div class="jumbotron mt-3">
+{% block content%}
+<style>
+</style>
+<section class="about-direction">
+    <div id='map' width="100%" style='height:400px'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoicm9zZW11dGFpIiwiYSI6ImNrN2F5eDhzcDA4bjAzbG56aXU4M3RzanAifQ.n3Q-Pn3j7typ1zXbXZ1JcQ';
+        var map = new mapboxgl.Map({
+            container: 'map',
+           style: 'mapbox://styles/mapbox/streets-v10',
+           center: [-0.340464, 35.241838],
+           zoom: 9,
+           bearing: 180
+        });
+    </script>
+</section>
+<section class="about-info">
+    <div class="jumbotron mt-3">
     <h3 class="display-4 mytitle">Know Us!</h3>
     <p class="lead">We are a resort located in Kericho County in the ouskirts of kericho town</p>
     <hr class="my-4">
@@ -13,5 +29,7 @@
         facing the beautiful views of the ever green tea plantations of Kericho.
 
 </div>
+</section>
+
 
 {% endblock %}
