@@ -1,5 +1,5 @@
 {% extends 'forms.html' %}
-
+{% load crispy_forms_tags%}
 
 {% load static %}
 {% block title %}detail {% endblock %}
@@ -41,7 +41,7 @@
 
           <p >Type : {{room_detail.category}}</p>
           <p>Room Number : {{room_detail.room_no}}</p>
-          <p>Description : {{room_detail.description}}</p>
+          <p>Description : {{ room_detail.specifications}}</p>
            <p>Price : {{room_detail.price}}</p>
           
         </div>
@@ -56,7 +56,7 @@
             
               <form action="" method="POST">
                   <h3>Book this room</h3>
-                  {{ booking_form.as_p }}
+                  {{ booking_form | crispy }}
                 {% csrf_token %}
                       <button type="submit" class="btn btn-primary" >Book</button>
               </form>

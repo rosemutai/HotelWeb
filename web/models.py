@@ -58,6 +58,7 @@ class RoomType(models.Model):
 class Room(models.Model):
     category = models.ForeignKey(RoomType, on_delete=models.CASCADE )
     room_no = models.CharField(max_length=5)
+    Specifications = models.CharField(max_length=300, default="")
     available = models.BooleanField(default=False)
     room_img = models.ImageField(upload_to="room images")
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
@@ -69,12 +70,13 @@ class Room(models.Model):
     def __str__(self):
         return self.room_no
 
-class Booking(models.Model):
+class BookingOrder(models.Model):
     fname = models.CharField(max_length=20)
     lname = models.CharField(max_length=20)
     email = models.EmailField()
-    start_date = models.DateTimeField(default=datetime.date.today)
-    end_date = models.DateTimeField(blank=True, null=True, default =datetime.date.today)
+    from_date = models.DateTimeField(default=datetime.date.today)
+    to_date = models.DateTimeField(blank=True, null=True, default =datetime.date.today)
+
 
     
 

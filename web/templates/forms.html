@@ -28,7 +28,11 @@
           font-family: 'Dancing Script', cursive;
           font-size: 2rem;
    
-}
+       }
+       .dropdown-menu{
+         position: absolute;
+         z-index: 1.2;
+       }
 
        .top-barner{
          width: 100%;
@@ -94,7 +98,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'accommodation' %}">Single</a>
-          <a class="dropdown-item" href="#">Double</a>
+          <a class="dropdown-item" href="{% url 'double' %}">Double</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Shared</a>
         </div>

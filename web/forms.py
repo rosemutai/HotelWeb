@@ -1,5 +1,5 @@
 from django import forms
-from .models import Contact, Booking
+from .models import Contact, BookingOrder
 
 class ContactForm(forms.ModelForm):
     class Meta:
@@ -10,7 +10,7 @@ class ContactForm(forms.ModelForm):
 
 class ReserveRoom(forms.ModelForm):
     class Meta:
-        model =  Booking
+        model =  BookingOrder
         fields = '__all__'
         
 
@@ -18,8 +18,8 @@ class ReserveRoom(forms.ModelForm):
             'fname': forms.TextInput(attrs={'class': 'formcontrol'}),
             'lname': forms.TextInput(attrs={'class': 'formcontrol'}),
             'email': forms.EmailInput(attrs={'class': 'formcontrol'}),
-            'start_date': forms.DateTimeInput(attrs={'class': 'formcontrol'}),
-            'end_date': forms.DateTimeInput(attrs={'class': 'formcontrol'}),
+            'from_date': forms.DateTimeInput(attrs={'class': 'formcontrol'}),
+            'to_date': forms.DateTimeInput(attrs={'class': 'formcontrol'}),
         }
 
         labels = {

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import ContactForm, ReserveRoom
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Room, Booking
+from .models import Room, BookingOrder, RoomType
 
 # Create your views here.
 def  index(request):
@@ -11,6 +11,10 @@ def  index(request):
 def accommodation(request):
     rooms = Room.objects.filter(available=True)
     return render(request, 'accommodation.html', {'rooms': rooms})  
+
+def doubleRoom(request):
+    double_room = Room.objects.filter(category__name="double")
+    return render(request, 'double_room.html', {'double_room': double_room})
      
      
 def  contact(request):
