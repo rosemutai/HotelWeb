@@ -3,6 +3,9 @@ from .forms import ContactForm, ReserveRoom
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Room, BookingOrder, RoomType
+from django.db.models import Q
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def  index(request):
@@ -12,8 +15,8 @@ def accommodation(request):
     rooms = Room.objects.filter(available=True)
     return render(request, 'accommodation.html', {'rooms': rooms})  
 
-def doubleRoom(request):
-    double_room = Room.objects.filter(category__name="double")
+def doubleRoom(request, double):
+    double_room = Room.objects.filter(category=double)
     return render(request, 'double_room.html', {'double_room': double_room})
      
      
@@ -51,13 +54,29 @@ def  room_detail(request, id):
         if booking_form.is_valid():
             print(booking_form)
             booking_form.save()
+            if booking_form:
+                subject = 'Room Booking'
+                message = 'You have successfully booked a room. \n Enjoy your stay with us'
+                email_from = settings.EMAIL_HOST_USER
+                recipient_list = ['chepngetichrose2030@gmail.com', ]
+                fail_silently = False
+                mail_sent = send_mail(subject, message, email_from, recipient_list)
+                print(mail_sent)
+            else:
+                pass
             # return redirect ("booked_successfuly")
     else:
         booking_form = ReserveRoom()
     return render(request, "room_detail.html", {'room_detail':room_detail, 'booking_form': booking_form})
 
-
-
                  
 # def booked_successfuly(request):
 #     return HttpResponse("You have succesfully booked a room")
+
+def search(request):
+    rooms = Room.objects.filter(~Q(room_img=''))
+    if request.method == 'POST':
+        search = request.POST['search']
+        print(search)
+        rooms = Room.objects.filter(~Q(room_img='') & Q(room_Specifications__icontains=search))
+    return render(request, 'search_results.html', {'rooms': rooms })

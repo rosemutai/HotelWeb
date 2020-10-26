@@ -98,7 +98,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{% url 'accommodation' %}">Single</a>
-          <a class="dropdown-item" href="{% url 'double' %}">Double</a>
+          <a class="dropdown-item" href="#">Double</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Shared</a>
         </div>
@@ -107,7 +107,7 @@
         <a class="nav-link customlink" href="{% url 'contact' %}">Contact </a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-searchborder my-2 my-sm-0" type="submit">Search</button>
     </form>

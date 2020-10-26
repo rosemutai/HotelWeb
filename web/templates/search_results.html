@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+        
+        
+        <div class="row">
+            {% for room in rooms %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                     <img class="card-img-top custom" src="{{ room.room_img.url }}" alt="">
+                    <div class="card-body"></div>
+                    <center><h5 class="card-title">{{ room.room_no }}</h5></center>
+                    <p class="card-text">{{ room.Specifications }}</p>
+                    <a href="{{ room.get_absolute_url }}" class="btn btn-primary">More</a>
+                </div>
+            </div>
+            {% if empty %}
+            <p>No matches</p>
+            {% endif %}
+            {% endfor %}
+           
+            
+        </div>
+                
+               
+                
+
+    
+    </div>
+</div>
+
+
+
+{% if empty %}
+<p>There is no match </p>
+
+{% endif %}
+
+{% endblock %}

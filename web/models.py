@@ -56,7 +56,7 @@ class RoomType(models.Model):
         return self.name
 
 class Room(models.Model):
-    category = models.ForeignKey(RoomType, on_delete=models.CASCADE )
+    category = models.ForeignKey(RoomType, on_delete=models.CASCADE, related_name="category" )
     room_no = models.CharField(max_length=5)
     Specifications = models.CharField(max_length=300, default="")
     available = models.BooleanField(default=False)

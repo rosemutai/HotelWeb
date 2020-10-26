@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap4',
+    # 'bootstrap4',
 
     'web',
     'crispy_forms'
@@ -131,3 +131,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media' )
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'rosemtai1202@gmail.com'
+EMAIL_HOST_PASSWORD = 'Ebook12345678'
+
