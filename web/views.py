@@ -6,7 +6,8 @@ from .models import Room, BookingOrder, RoomType
 from django.db.models import Q
 from django.core.mail import send_mail
 from django.conf import settings
-
+from django.views.generic import ListView
+import requests
 # Create your views here.
 def  index(request):
     return render(request, 'index.html')
@@ -73,10 +74,33 @@ def  room_detail(request, id):
 # def booked_successfuly(request):
 #     return HttpResponse("You have succesfully booked a room")
 
-def search(request):
-    rooms = Room.objects.filter(~Q(room_img=''))
-    if request.method == 'POST':
-        search = request.POST['search']
-        print(search)
-        rooms = Room.objects.filter(~Q(room_img='') & Q(room_Specifications__icontains=search))
-    return render(request, 'search_results.html', {'rooms': rooms })
+# def search(request):
+#     rooms = Room.objects.filter(~Q(room_img=''))
+#     if request.method == 'POST':
+#         search = request.POST['search']
+#         print(search)
+#         rooms = Room.objects.filter(~Q(room_img='') & Q(room_Specifications__icontains=search))
+#     return render(request, 'search_results.html', {'rooms': rooms })
+class SearchResultsView(ListView):
+    model = Room
+    template_name = 'search_results.html'
+
+    def get_queryset(self): 
+        query = self.request.GET.get('q')
+        object_list = R.objects.filter(
+            Q(name__icontains=query) | Q(state__icontains=query)
+        )
+        return object_list
+
+def currentWeather(request):
+    url = 'http://api.openweathermap.org/data/2.5/weather?q={}&units=imperial&appid=f500a83d26ef9fae7f96ba796810dc17'
+    city = 'Kapsoit'
+    city_weather = requests.get(url.format(city)).json()
+    print(city_weather)
+    weather = {
+        'city' : city,
+        'temperature' : city_weather['main']['temp'],
+        'description' : city_weather['weather'][0]['description'],
+        'icon' : city_weather['weather'][0]['icon']
+    }
+    return render(request, 'weather.html', {'weather': weather})

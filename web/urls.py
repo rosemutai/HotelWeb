@@ -1,6 +1,6 @@
 from django.urls import path
 from web import  views
-
+from .views import SearchResultsView
 
 urlpatterns = [
     path('', views.index,  name='index'),
@@ -10,7 +10,8 @@ urlpatterns = [
     path('about', views.about, name="about"),
     path('category/<int:double>/', views.doubleRoom, name="double"),
     path('roomdetail/<int:id>',views.room_detail , name='room_detail'),
-    path('search', views.search, name="search"),
+    path('search', SearchResultsView.as_view(), name="search"),
+    path('weather', views.currentWeather, name="weather")
     # path('map', views.default_map, name="default")
     # path('room-success', views.booked_successfuly, name="room-success"),
 

@@ -89,9 +89,7 @@
       <li class="nav-item active">
         <a class="nav-link customlink" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link customlink" href="{% url 'about' %}">About</a>
-      </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle customlink" href="{% url 'accommodation' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Accommodation
@@ -133,8 +131,8 @@
             
             <p>
                 <a>Info | </a>
-                <a>Marketing | </a>
-                <a>Support </a
+                <a href="{% url 'about' %}" style="color: white">Directions  | </a>
+                <a href="{% url 'weather' %}" style="color: white">current weather </a
             </p>
             <p>Terms & Conditions</p>
 
