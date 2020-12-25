@@ -1,12 +1,12 @@
 {% extends 'forms.html' %}
 
 {% load static %}
-{%  block title %}Double-rooms {%  endblock%}
+{%  block title %}Single-Rooms {%  endblock%}
 
 {%  block content %}
 
         <div id="flex-container">
-            {% for room in double_room %}
+            {% for room in single_room %}
            
                 <div class="item card " style="width: 18rem;">
                     <img class="card-img-top" src="{{ room.room_img.url}}">

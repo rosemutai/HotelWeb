@@ -95,14 +95,18 @@
           Accommodation
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'accommodation' %}">Single</a>
-          <a class="dropdown-item" href="#">Double</a>
+          <a class="dropdown-item" href="{% url 'single-rooms' %}">Single</a>
+          <a class="dropdown-item" href="{% url 'double-rooms' %}">Double</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Shared</a>
+          <a class="dropdown-item" href="{% url 'shared-rooms' %}">Shared</a>
         </div>
       </li>
       <li class="nav-item">
         <a class="nav-link customlink" href="{% url 'contact' %}">Contact </a>
+      </li>
+
+       <li class="nav-item">
+        <a class="nav-link customlink" href="{% url 'about' %}">About </a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}">

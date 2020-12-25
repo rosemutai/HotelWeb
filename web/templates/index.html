@@ -16,6 +16,9 @@
 .card-title{
   color: rgb(126, 64, 22);
   font-family: 'Indie Flower',cursive;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
   
 }
 
@@ -23,7 +26,10 @@
    font-family: 'Dancing Script', cursive;
    font-size: 2rem;
 }
-
+a.card-title:hover{
+  color:  rgb(126, 64, 22);
+  text-decoration: none;
+}
 
 </style>
 
@@ -35,12 +41,12 @@
 </section>
 <br>
 <section class="middle-barner">
-    <center><h4 class="card-title"><u><b>Our Services</b></u></h4></center>
+    <h4 class="card-title"><u><b>Our Services</b></u></h4>
     <div class="container">
   <div class="row">
     <div class="col-sm">
      <div class="card" style="width: 27rem; height: 18rem; border: none;">
-          <center><h3 class="card-title">Food</h3></center> 
+          <a href="{% url 'food' %}" class="card-title">Food</a>
   <div class="card-body">
    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
@@ -66,7 +72,7 @@
     </div>
     <div class="col-sm">
     <div class="card" style="width: 27rem; height: 18rem; border: none;">
-     <center><h3 class="card-title">Luxury</h3></center> 
+     <h3 class="card-title">Luxury</h3>
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">

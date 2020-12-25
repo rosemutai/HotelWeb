@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<style>
+    #food-detail{
+        margin: auto 20px;
+    }
+    .food-title{
+        color: rgb(160, 98, 67);
+    }
+
+    .btn{
+        background-color: rgb(160, 98, 67);
+        color: white;
+        border: 1px rgb(160, 98, 67);
+    }
+
+    /* .btn:hover{
+        background-color: green;
+        color: white
+    } */
+</style>
+<div class="container">
+  <div class="row">
+      <div class="col-1"></div>
+      <div class="col-4">
+          <img src="{{food_detail.food_image.url}}" class="img-responsive mt-3" alt="">
+        </div>
+        <div class="col-6 mt-3">
+            <h4 class="food-title">{{food_detail.name}}</h4>
+            <p><b>Ksh. {{food_detail.price}}</b></p>
+            <p class="card-text">{{food_detail.description}}</p>
+            <form action="{% url 'add-to-cart' food_detail.id  %}" method="post">
+                {% csrf_token %}
+                {{form}}
+                <br>
+                <br>
+                <button  type="submit" class="btn btn-success">Add to Cart</button>
+            </form>
+
+            
+
+        </div>
+      <div class="col-1"></div>
+    
+    
+    </div>
+</div>
+
+{% endblock %}

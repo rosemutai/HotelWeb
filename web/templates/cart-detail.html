@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .box-element{
+    box-shadow: hsl(0, 0%, 80%) 0 0 16px;
+    background-color: #fff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.cart-row{
+    display: flex;
+    align-items: flex-stretch;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ececec;
+}
+
+.quantity{
+    display: inline-block;
+    font-weight: 700;
+    padding-right: 10px;
+}
+
+.row-image{
+    width: 100px;
+    height: 100px;
+}
+
+.ch-quantity{
+    width: 12px;
+    cursor: pointer;
+    display: block;
+    margin-top: 5px;
+    transition: 1s;
+}
+
+.form-field {
+    width: 250px;
+    display: inline-block;
+    padding: 5px;
+}
+
+.hidden{
+    display: none!important;
+}
+
+.increase-sign,
+.decrease-sign{
+    cursor: pointer;
+}
+</style>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="box-element">
+            <a href="{% url 'food' %}" class="btn btn-outline-dark">&#x2190;Back</a>
+            <br>
+            <br>
+            <table class="table">
+                <tr>
+                    <th><h5>Items: <strong>4</strong></h5></th>
+                     <th><h5>Total: <strong>ksh.56</strong></h5></th>
+                     <th>
+                         <a style="float: right; margin: 5px;" class="btn btn-success" href="#">Checkout</a>
+                     </th>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div class="box-element">
+            <div class="cart-row">
+                <div style="flex:2"></div>
+                <div style="flex:2"><strong>Item</strong></div>
+                <div style="flex:1"><strong>Price</strong></div>
+                <div style="flex:1"><strong>Quantity</strong></div>
+                <div style="flex:1"><strong>Total</strong></div>
+            </div> 
+            {% for item in cart %}
+            <div class="cart-row">
+                 <div style="flex:2"><img class="row-image" src="{{ item.food.food_image.url }}" alt="" class=""></div>
+                <div style="flex:2">{{item.name}}heyy</div>
+                <div style="flex:1">ksh. {{item.food.price}}</div>
+                <div style="flex:1">
+                    <p class="quantity">{{item.quantity}} </p>
+                    <div class="quantity">
+                         <a href="{% url 'cart-add' %}"><b class="increase-sign">+</b></button>
+                        <a href="{% url 'cart-remove' %}"><b class="decrease-sign">-</b></button>
+                    </div>
+            
+                </div>
+                <!-- <div style="flex:1">ksh.{{ cart.get_total | floatformat:2}}</div> -->
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

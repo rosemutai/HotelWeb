@@ -5,6 +5,11 @@
 {% block title %}detail {% endblock %}
 
 {% block content %} 
+<style>
+  form{
+    max-width: 700px;
+  }
+</style>
 
   <section class="probootstrap-slider flexslider2 page-inner">
     <div class="overlay"></div>
@@ -17,7 +22,7 @@
                   <div class="probootstrap-breadcrumbs">
                     <!-- <a href="#">Home </a><span><a href="{% url 'accommodation' %}"> Rooms </a></span>{{room_detail}} -->
                   </div>
-                  <h4 class="mytitle mt-3">{{room_detail}}</h>
+                  <h4 class="mytitle mt-3">{{room_detail}}</h4>
                 </div>
 
           </div>
@@ -60,7 +65,8 @@
                 {% csrf_token %}
                       <button type="submit" class="btn btn-primary" >Book</button>
               </form>
-              <br>
+           
+             <br>
           </div>
         </div>
       </div>

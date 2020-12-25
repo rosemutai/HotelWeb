@@ -1,0 +1,42 @@
+{% extends 'forms.html' %}
+
+{% load static %}
+{%  block title %}Food {%  endblock%}
+
+{%  block content %}
+<style>
+    .btn{
+     
+        background-color: rgb(218, 209, 204);
+        color:  rgb(160, 98, 67);
+        
+    }
+    .btn:hover{
+        background-color: rgb(160, 98, 67);
+        color: white;
+    }
+
+</style>
+
+        <div id="flex-container">
+            {% for food in foods %}
+           
+                <div class="item card " style="width: 18rem;">
+                    <img class="card-img-top" src="{{ food.food_image.url}}" width="100" height="200">
+                   
+                    <div class="card-body">
+                       
+                        <h5 class="card-title mytitle"><a>{{food.name}}</a></h5>
+                        <p class="mytitle">Ksh. {{food.price}}</p>
+                        <p class="mytitle">{{food.description}}</p>
+                        
+                             <a href="{{ food.get_absolute_url }}" class=" btn ml-4">More</a>
+            
+                    </div>
+                </div>
+            {% endfor %}
+        
+         </div>
+            
+        
+{%  endblock%}

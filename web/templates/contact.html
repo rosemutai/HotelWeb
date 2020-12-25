@@ -7,37 +7,46 @@
 <style>
 
     .contact-section{
-      
-      
-        /* margin-left:auto;
-       margin-right: auto; */
-        background-image: linear-gradient(to right,saddlebrown, chocolate) ;
+        background-color:#DEB887;
     }
+    h6, button{
+        text-align: center;
+    }
+
     form{
-       width: 50%;
-       margin-left:auto;
-       margin-right: auto;  
+       max-width: 500px;
+       max-height:  auto;
+       margin:  auto;
     }
-    
 
     #form-title{
-        color: wheat
-    }
-
-    .contact-submit{
-        background-color:#DEB887;
         color: white;
     }
 
-     .contact-submit:hover{
-         background-color: #D2691E;
+    .contact-submit{
+        background-color: #D2691E;
+        color: white;
+        
+    }
+
+    .contact-submit:hover{
+        
+         color: white;
      }
-  
+
+     input, textarea{
+         background: #dbd7d4;
+    }
+
+    label{
+        color: white;
+    }
+     
 </style>
 <section class="contact-section">
-<div class="form-box">
+<div class="container form-box">
     <form method="post" novalidate>
-      <h3 id="form-title">Please fill in the form below to contact us</h3>
+    <h6 id="form-title">Please fill in the form below to contact us</h6>
     {% csrf_token %}
     {{ form|crispy }}
     <center><button type="submit" class="btn contact-submit"><b>Submit</b></button></center>

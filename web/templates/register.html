@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<style>
+    form{
+        max-width: 700px;
+        background:rgb(160, 98, 67);
+        margin:  auto;
+        color: white;
+        padding-left: 30px;
+        padding-top: 30px;
+        
+    }
+    #form-title{
+        text-align: center;
+        margin-top: 20px;
+        color: rgb(160, 98, 67);
+    }
+    input{
+        max-width: 80%;
+        margin-left: 20px;
+        margin-top: 20px;
+        box-shadow: 10px 10px 8px #888;
+    }
+    label{
+        margin-left: 18px;
+        margin-top: 18px;
+        color: white;
+    }
+
+    .btn{
+        margin: auto;
+        display: block;
+        background-color: rgb(218, 209, 204);
+        color:  rgb(160, 98, 67);
+        
+    }
+    .btn:hover{
+        background-color: #777;
+        color: white
+
+    }
+
+    @media screen and (max-width: 600px) {
+       form{
+           margin: 20px;
+       }
+      
+ 
+    }
+</style>
+<section id="register-form">
+    <div class="container">
+        {% if messages %}
+                {% for message in messages %}
+                <p>{{ message }}</p>
+                {% endfor %}
+        {% endif %}
+        <h3 id="form-title">Sign Up</h3>
+        <form method="post" action="{% url 'register' %}">
+            
+            {% csrf_token %}
+            <!-- {{form|crispy}} -->
+          
+            {{form.email.label}}
+                {{form.email}}
+            {{form.username.label}}
+                {{form.username}}
+            {{form.password1.label}}
+                {{form.password1}}
+            {{form.password2.label}}
+               {{form.password2}}
+               <br>
+               <br>
+            <button type="submit" class="btn btn-lg">Register</button>
+            <br>
+            <br>
+        </form>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+
+
